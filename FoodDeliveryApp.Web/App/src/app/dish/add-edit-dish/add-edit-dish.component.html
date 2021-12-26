@@ -1,0 +1,50 @@
+<hr style="margin-top:50px">
+<br>
+<div style="margin-left:50px">
+  <form [formGroup]="DishForm" (ngSubmit)="OnSubmit()">
+    <div>
+      <label>
+        Name<br>
+        <input type="text" formControlName="DishName" class="form-control" placeholder="Enter DishName"
+               [ngClass]="{'is-invalid':DishForm.get('DishName').touched && DishForm.get('DishName').invalid}" required />
+        <div class="invalid-feedback">
+          DishName is required.
+        </div>
+      </label>
+      <label style="padding-left:100px">
+        CategoryId<br>
+        <input type="number" formControlName="CategoryId" class="form-control" placeholder="Enter CategoryId"
+               [ngClass]="{'is-invalid':DishForm.get('CategoryId').touched && DishForm.get('CategoryId').invalid}" required />
+        <div class="invalid-feedback">
+          CategoryId is required.
+        </div>
+      </label>
+    </div>
+    <div style="margin-top: 20px">
+      <label>
+        Price
+        <br>
+        <input type="number" formControlName="Price" class="form-control" placeholder="Enter Price"
+               [ngClass]="{'is-invalid':DishForm.get('Price').touched && DishForm.get('Price').invalid}" required />
+        <div class="invalid-feedback">
+          Price is required.
+        </div>
+      </label>
+      <label style="padding-left:100px">
+        Description
+        <br>
+        <input type="text" formControlName="Description" class="form-control" placeholder="Enter Description"
+               [ngClass]="{'is-invalid':DishForm.get('Description').touched && DishForm.get('Description').invalid}" required />
+        <div class="invalid-feedback">
+          Description is required.
+        </div>
+      </label>
+      <div style="padding-left:600px">
+        <button class="btn btn-primary" [disabled]="!DishForm.valid" type="submit">{{ButtonName}}</button>
+      </div>
+    </div>
+  </form>
+</div>
+<br>
+<app-show-dish></app-show-dish>
+

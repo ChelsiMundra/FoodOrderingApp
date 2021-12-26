@@ -1,0 +1,12 @@
+<div *ngFor="let dataitem of CategoryList">
+  <div *ngIf="dataitem.IsDeleted != true">
+    {{dataitem.CategoryName}}
+    <p>
+      <a style="margin-left:100px" class="btn btn-light mr-1" routerLink="/add-edit-dish">Add Dish</a>
+      <a style="margin-left:100px" class="btn btn-light mr-1" routerLink="/editcategory/{{dataitem.Id}}">Edit Category</a>
+      <a style="margin-left:100px" class="btn btn-light mr-1" (click)="deleteClick(dataitem)">
+        Delete Category
+      </a>
+    </p>
+  </div>
+</div>

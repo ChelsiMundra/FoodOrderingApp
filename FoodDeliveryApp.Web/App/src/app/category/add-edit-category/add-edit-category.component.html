@@ -1,0 +1,21 @@
+<hr style="margin-top:50px">
+<br>
+<div style="margin-left:50px">
+  <form [formGroup]="CategoryForm" (ngSubmit)="CategoryForm.valid && OnSubmit()">
+    <div class="form-group row">
+      <label for="CategoryName" class="col-sm-2 col-form-label">CategoryName</label>
+      <div class="col-sm-4" [formGroup]="CategoryForm">
+        <input type="text" formControlName="CategoryName" class="form-control" placeholder="Enter CategoryName"
+               [ngClass]="{'is-invalid':CategoryForm.get('CategoryName').touched && CategoryForm.get('CategoryName').invalid}" required />
+        <div class="invalid-feedback">
+          CategoryName is required.
+        </div>
+      </div>
+    </div>
+   
+    <div  style="padding-left:600px">
+      <button class="btn btn-primary" [disabled]="!CategoryForm.valid" type="submit">{{ButtonName}}</button>
+    </div>
+  </form>
+</div>
+<app-show-category></app-show-category>

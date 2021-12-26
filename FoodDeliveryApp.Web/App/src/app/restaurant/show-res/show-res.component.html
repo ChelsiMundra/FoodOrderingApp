@@ -1,0 +1,39 @@
+<button routerLink="add/0" type="button" class="m-1 btn btn-light btn-outline-primary float-sm-end">Add Restaurant</button>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <!-- <th>Restaurant Id</th> -->
+            <th>Restaurant Name</th>
+            <th>Restaurant Location</th>
+            <th>Contact us</th>
+            <th>Update</th>
+            <th>Delete</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataitem of RestaurantList">
+            <!-- <td>{{dataitem.Id}}</td> -->
+            <td *ngIf="dataitem.IsDeleted != true">
+                <a routerLink="details/{{dataitem.Id}}">
+                    <button class="m-1 btn btn-light btn-outline-primary" Button>{{dataitem.RestaurantName}}</button>
+                </a>
+            </td>
+            <td *ngIf="dataitem.IsDeleted != true">
+                {{dataitem.Location}}
+            </td>
+            <td *ngIf="dataitem.IsDeleted != true">
+                <!-- <button type="button" class="btn btn-light mr-1">Contact</button> -->{{dataitem.ContactNumber}}
+            </td>
+            <td *ngIf="dataitem.IsDeleted != true">
+                <a routerLink="update/{{dataitem.Id}}">
+                    <button type=" button" class="btn btn-dark m-1 btn-outline-primary">Update</button>
+                </a>
+            </td>
+            <td *ngIf="dataitem.IsDeleted != true">
+                <button type=" button" (click)="deleteClick(dataitem)" class="btn btn-dark m-1 btn-outline-primary">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

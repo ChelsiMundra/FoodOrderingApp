@@ -1,0 +1,93 @@
+<form [formGroup]="restaurantForm" (ngSubmit)="OnSubmit()">
+    <br>
+    <div class="form-group row col-sm-1 float-sm-end">
+        <button type="submit" [disabled]="!restaurantForm.valid" class="m btn btn-light btn-outline-primary ">
+            {{pageTitle}}</button>
+    </div>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Restaurant Name  :</label>
+        <div class="col-sm-4" [formGroup]="restaurantForm">
+            <input type="text" formControlName="RestaurantName" class="form-control" placeholder="Write Name" [ngClass]="{'is-invalid':restaurantForm.get('RestaurantName').touched && restaurantForm.get('RestaurantName').invalid}" required>
+            <div class="invalid-feedback">
+                <div>Restaurant Name is required</div>
+            </div>
+        </div>
+    </div><br>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Contact Number   :</label>
+        <div class="col-sm-4">
+            <input type="number" formControlName="ContactNumber" class="form-control" placeholder="Write Contact Number" [ngClass]="{'is-invalid':restaurantForm.get('ContactNumber').touched && restaurantForm.get('ContactNumber').invalid}" required>
+            <div *ngIf="restaurantForm.get('ContactNumber').touched && restaurantForm.get('ContactNumber').invalid" class="invalid-feedback">
+                <div *ngIf="restaurantForm.get('ContactNumber').errors.required">ContactNumber is required</div>
+                <div *ngIf="restaurantForm.get('ContactNumber').errors.minlength">Contact Number must be a letaset 10 charector</div>
+            </div>
+        </div>
+    </div><br>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Location :</label>
+        <div class="col-sm-4">
+            <input type="text" formControlName="Location" class="form-control" placeholder="Write Location" [ngClass]="{'is-invalid':restaurantForm.get('Location').touched && restaurantForm.get('Location').invalid}" required>
+            <div class="invalid-feedback">
+                <div>Location is required.</div>
+            </div>
+        </div>
+    </div><br>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Cost For Two :</label>
+        <div class="col-sm-4">
+            <input type="number" formControlName="CostForTwo" class="form-control" placeholder="Write Cost For Two" [ngClass]="{'is-invalid':restaurantForm.get('CostForTwo').touched && restaurantForm.get('CostForTwo').invalid}" required>
+            <div class="invalid-feedback">
+                <div>Required field. Add cost for 2.</div>
+            </div>
+        </div>
+    </div><br>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Opening & Closing Time:</label>
+        <div class="col-sm-2">
+            <input  type="text" formControlName="OpenTime" class="form-control" placeholder="Opening Time" [ngClass]="{'is-invalid':restaurantForm.get('OpenTime').touched && restaurantForm.get('OpenTime').invalid}" required>
+            <div class="invalid-feedback">
+                <div>Time is required</div>
+            </div>
+            to
+            <br><input type="text" formControlName="CloseTime" class="form-control" placeholder="Closing Time" [ngClass]="{'is-invalid':restaurantForm.get('CloseTime').touched && restaurantForm.get('CloseTime').invalid}" required>
+            <div class="invalid-feedback">
+                <div>Time is Required.</div>
+            </div>
+        </div>
+    </div><br>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label">Rating:</label>
+        <div class="col-sm-4">
+            <input type="number" formControlName="Rating" class="form-control" placeholder="Enter Rating" [ngClass]="{'is-invalid':restaurantForm.get('Rating').touched && restaurantForm.get('Rating').invalid}" required>
+            <div class="invalid-feedback">
+                <div>Time is Required.</div>
+            </div>
+        </div>
+    </div><br>
+
+    <!-- <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label"> CreatedAt:</label>
+        <div class="col-sm-4">
+            <input type="text" formControlName="CreatedAt" class="form-control" placeholder="Enter  CreatedAt">
+        </div>
+    </div><br>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label"> DeletedAt:</label>
+        <div class="col-sm-4">
+            <input type="text" formControlName="DeletedAt" class="form-control" placeholder="Enter  DeletedAt">
+        </div>
+    </div><br>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label"> CreatedBy:</label>
+        <div class="col-sm-4">
+            <input type="text" formControlName="CreatedBy" class="form-control" placeholder="Enter  CreatedBy">
+        </div>
+
+    </div><br>
+    <div class="form-group row">
+        <label for="colFormLabel" class="col-sm-2 col-form-label"> DeletedBy:</label>
+        <div class="col-sm-4">
+            <input type="text" formControlName="DeletedBy" class="form-control" placeholder="Enter  DeletedBy">
+        </div>
+    </div> -->
+</form>
